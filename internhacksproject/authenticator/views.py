@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login,logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def register(request):
@@ -34,6 +35,7 @@ def logOut(request):
         logout(request)
         return redirect('login')
 
+@login_required(login_url='login')
 def test(request):
     form = AuthenticationForm()
     context = {'form':form}
