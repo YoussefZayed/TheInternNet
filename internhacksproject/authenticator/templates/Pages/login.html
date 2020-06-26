@@ -1,7 +1,9 @@
-Login
+{% extends 'base_layout.html' %}
 
+{% block content %}
 <form method="POST" action="">
         {% csrf_token %}
         {{form}}
         <input type="submit" name = "Create User">
 </form>
+{% endblock %}
