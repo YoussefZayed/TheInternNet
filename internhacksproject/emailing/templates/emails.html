@@ -1,0 +1,9 @@
+{% if email_List %}
+    <ul>
+    {% for emailTemp in email_List %}
+        <li>{{ emailTemp.name }} <a href="/emailing/viewTemp/{{ emailTemp.id }}/">View</a> <a href="/emailing/createEmail/{{ emailTemp.id }}/">Use</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No emails are available.</p>
+{% endif %}

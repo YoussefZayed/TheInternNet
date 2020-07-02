@@ -1,0 +1,22 @@
+<h1> Create an email with Template {{ email.name }}</h1>
+
+<p>
+    {{ email.content|linebreaksbr }}
+</p>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<a href="/emailing/">Home</a> 
+
+<form action="/emailing/createdEmail/{{email.id}}/" method="post">
+{% csrf_token %}
+<label for="$FIRSTNAME">First Name: </label>
+<input id="$FIRSTNAME" type="text" name="$FIRSTNAME">
+<label for="$LASTNAME">LAST NAME: </label>
+<input id="$LASTNAME" type="text" name="$LASTNAME">
+<label for="$COMPANY">COMPANY: </label>
+<input id="$COMPANY" type="text" name="$COMPANY">
+<label for="$SKILL">SKILL: </label>
+<input id="$SKILL" type="text" name="$SKILL">
+<input type="submit" value="Create">
+</form>

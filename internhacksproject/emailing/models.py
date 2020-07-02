@@ -7,3 +7,7 @@ class Contact(models.Model):
     company = models.CharField(max_length=200)
     email = models.EmailField()
 
+class Email(models.Model):
+    name = models.CharField(max_length=200)
+    content = models.TextField()
+    
