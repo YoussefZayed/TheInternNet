@@ -10,13 +10,18 @@
 
 <form action="/emailing/createdEmail/{{email.id}}/" method="post">
 {% csrf_token %}
-<label for="$FIRSTNAME">First Name: </label>
-<input id="$FIRSTNAME" type="text" name="$FIRSTNAME">
-<label for="$LASTNAME">LAST NAME: </label>
-<input id="$LASTNAME" type="text" name="$LASTNAME">
-<label for="$COMPANY">COMPANY: </label>
-<input id="$COMPANY" type="text" name="$COMPANY">
-<label for="$SKILL">SKILL: </label>
-<input id="$SKILL" type="text" name="$SKILL">
+{% if variables %}
+   
+    {% for var in variables %}
+    <label for="{{ var }}">{{ var }}: </label>
+    <input id="{{ var }}" type="text" name="{{ var }}">
+    {% endfor %}
+   
+{% else %}
+    <p>No variables are found.</p>
+{% endif %}
+
 <input type="submit" value="Create">
 </form>
+
+{{ res }}

@@ -1,0 +1,18 @@
+
+
+
+
+<form action="/emailing/edittemplate/{{ template.id }}/" method="post">
+{% csrf_token %}
+<label for="templateName">Template Name: </label>
+<input id="templateName" type="text" name="templateName" value="{{template.name}}">
+<label>Text Area</label>
+<textarea id = "templateContent"
+        name = "templateContent"
+        rows = "3"
+        cols = "80" >{{ template.content}}</textarea>
+<input type="submit" value="Edit">
+</form>
+<br>
+<br>
+<a href="/emailing">Home</a> 

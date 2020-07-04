@@ -1,9 +1,13 @@
+
+<a href="/emailing/createtemplate">Create New Template</a>
+
 {% if email_List %}
     <ul>
     {% for emailTemp in email_List %}
-        <li>{{ emailTemp.name }} <a href="/emailing/viewTemp/{{ emailTemp.id }}/">View</a> <a href="/emailing/createEmail/{{ emailTemp.id }}/">Use</a></li>
+        <li>{{ emailTemp.name }} <a href="/emailing/viewTemp/{{ emailTemp.id }}/">View</a> <a href="/emailing/edittemplate/{{ emailTemp.id }}/">edit</a> <a href="/emailing/createEmail/{{ emailTemp.id }}/">Use</a> <a href="/emailing/deletetemplate/{{ emailTemp.id }}/">Delete</a> </li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No emails are available.</p>
 {% endif %}
+
