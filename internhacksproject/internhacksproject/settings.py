@@ -32,7 +32,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+<<<<<<< HEAD
     'emailing.apps.EmailingConfig',
+=======
+    'authenticator.apps.AuthenticatorConfig',
+>>>>>>> origin/auth
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
