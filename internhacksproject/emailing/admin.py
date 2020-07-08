@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Contact, Email
+from .models import EmailSent, Template
 
-admin.site.register(Contact)
-admin.site.register(Email)
+admin.site.register(EmailSent)
+admin.site.register(Template)

@@ -8,8 +8,15 @@
 
 <a href="/emailing/">Home</a> 
 
+
+
 <form action="/emailing/createdEmail/{{email.id}}/" method="post">
 {% csrf_token %}
+
+    <label for="EmailUsedName">What would you like to name this email? </label>
+    <input id="EmailUsedName" type="text" name="EmailUsedName">
+
+<br><br><br>
 {% if variables %}
    
     {% for var in variables %}

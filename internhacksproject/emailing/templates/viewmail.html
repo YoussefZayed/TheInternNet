@@ -3,3 +3,13 @@
     {{ email.content|linebreaksbr }}
 </p>
 <a href="/emailing/">Home</a> <a href="/emailing/createEmail/{{ email.id }}/">Use</a>
+
+{% if email_list %}
+    <ul>
+    {% for emailSent in email_list %}
+        <li>{{ emailSent.name }} Created on {{ emailSent.dateCreated }} <a href="/emailing/viewCreatedEmail/{{ email.id }}/{{ emailSent.id }}">View</a> </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>This Template was not used.</p>
+{% endif %}

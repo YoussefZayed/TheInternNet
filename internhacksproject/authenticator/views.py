@@ -10,7 +10,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request,user)
-            return redirect('http://127.0.0.1:8000/admin/')
+            return redirect('/emailing/')
     else:
         form = UserCreationForm()
 
@@ -23,7 +23,7 @@ def logIn(request):
         if form.is_valid():
             user = form.get_user()
             login(request,user)
-            return redirect('http://127.0.0.1:8000/admin/')
+            return redirect('/emailing/')
     else:
         form = AuthenticationForm()
 
@@ -33,7 +33,7 @@ def logIn(request):
 def logOut(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('login')
+        return redirect('/login')
 
 @login_required(login_url='login')
 def test(request):

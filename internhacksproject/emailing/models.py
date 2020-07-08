@@ -1,13 +1,18 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class Contact(models.Model):
-    first_Name = models.CharField(max_length=200)
-    last_Name = models.CharField(max_length=200)
-    company = models.CharField(max_length=200)
-    email = models.EmailField()
 
-class Email(models.Model):
+
+
+
+class Template(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     content = models.TextField()
     
+class EmailSent(models.Model):
+    content = models.TextField()
+    name = models.CharField(max_length=200)
+    dateCreated = models.DateField(auto_now_add=True)
+    template = models.ForeignKey(Template, on_delete=models.CASCADE)

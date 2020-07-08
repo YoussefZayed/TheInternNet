@@ -15,12 +15,8 @@ Including another URLconf
 """
 
 from django.contrib import admin
-<<<<<<< HEAD
 from django.urls import include, path
-=======
-from django.urls import path
 from authenticator import views
->>>>>>> origin/auth
 
 urlpatterns = [
     path('emailing/',include('emailing.urls'),name="Email_App"),
