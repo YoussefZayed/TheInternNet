@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'emailing.apps.EmailingConfig',
     'authenticator.apps.AuthenticatorConfig',
+    'jobportal.apps.JobportalConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
