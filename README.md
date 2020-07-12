@@ -4,6 +4,8 @@ InternHacks 2020 Project
 # Requirements: 
 Django 3  python -m pip install Django
 
+Beautifulsoup4 pip install beautifulsoup4
+
 
 Place seceret.py file in internhacksproject/internhacksproject next to settings.py
 
