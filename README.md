@@ -6,6 +6,8 @@ Django 3  python -m pip install Django
 
 Beautifulsoup4 pip install beautifulsoup4
 
+Requests pip install requests
+
 
 Place seceret.py file in internhacksproject/internhacksproject next to settings.py
 
