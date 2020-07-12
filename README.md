@@ -8,6 +8,7 @@ Beautifulsoup4 pip install beautifulsoup4
 
 Requests pip install requests
 
+Lxml parser pip install lxml
 
 Place seceret.py file in internhacksproject/internhacksproject next to settings.py
 
