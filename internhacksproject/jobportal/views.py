@@ -15,7 +15,7 @@ class WebPortal(View):
     def get(self, request, *awgs, **kwargs):
         context = {}
         context['url_form'] = URLForm()
-        return render(request, 'webportal/form.html', context)
+        return render(request, 'jobportal/form.html', context)
 
     def post(self, request):
         submitbutton= request.POST.get('Submit')
@@ -31,4 +31,4 @@ class WebPortal(View):
         context= {'url_form': URLForm(), 'name': name, 'weblink': weblink,
               'submitbutton': submitbutton}
         
-        return render(request, 'webportal/form.html', context)
+        return render(request, 'jobportal/form.html', context)
