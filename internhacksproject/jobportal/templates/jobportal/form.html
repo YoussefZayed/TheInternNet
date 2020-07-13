@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Submit your website URL here:{% endblock %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <table>{{ url_form.as_table }}</table>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if submitbutton == "Submit" %}
+    <h1> Your company name is {{ name }}</h1>
+    <h1> Your website link is {{ weblink }}</h1>
+    {% endif %}
+{% endblock %}
