@@ -1,0 +1,51 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+<!DOCTYPE html>
+{% block style %}
+  .sheet{
+    height: 100%;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1;
+    width: 30%;
+    background-color: #F0F0F1;
+  }
+{% endblock style %}
+{% block content %}
+<div class="container">
+  <div class="row" style= padding-top:2%>
+    <div class="col-sm-8">
+      <h1>Jobs For You </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <form class="form-inline" method ="get">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input class="form-control d-inline w-75" id="ex4" type="text" placeholder="Search"
+          aria-label="Search" name="search">
+      </form>
+    </div>
+    <div class="col-sm-3">
+      <div class = "sheet">
+      </div>
+    </div>
+  </div>
+
+  {%for item in postList%}
+  <div class="row" style= padding-top:2%>
+    <div class="col-sm-8">
+      <div class="card bg-light">
+        <div class="card-body">
+          <a href="login" class="stretched-link"></a>
+          {{item.Title}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+{% endblock content%}
