@@ -13,8 +13,8 @@
       padding-top: 1%;
     }
     .text-large {
-  font-size: 150%;
-}
+      font-size: 150%;
+    }
     .sidenav a {
       padding: 20% 30%;
       display: block;
@@ -57,7 +57,11 @@
       color: rgb(0, 0, 0);
       text-decoration: none;
     }
-    hr { width:90%; height:5px; background: rgb(0, 0, 0) }
+    hr {
+      width: 90%;
+      height: 5px;
+      background: rgb(0, 0, 0);
+    }
   </style>
   <link
     rel="stylesheet"
@@ -94,36 +98,62 @@
 
   <br />
   <div class="row">
-    <div class="col-sm-12 rounded" style="min-height: 50rem; background-color: #bdbdbd;">
+    <div
+      class="col-sm-12 rounded"
+      style="min-height: 50rem; background-color: #bdbdbd;"
+    >
       {% if email_List %}
       <ul style="list-style-type: none;">
         {% for emailTemp in email_List %}
         <li>
-            <br>
-            <div class="row">            
-            <div class="col-sm-9 ">
-                <a href="/emailing/viewTemp/{{ emailTemp.id }}/">
-                    <span class="text-large" style=" font-size: 2.2rem; font-weight: 600; color: black;">
-                      {{ emailTemp.name }}
-                    </span></a>
+          <br />
+          <div class="row">
+            <div class="col-sm-9">
+              <a href="/emailing/viewTemp/{{ emailTemp.id }}/">
+                <span
+                  class="text-large"
+                  style="font-size: 2.2rem; font-weight: 600; color: black;"
+                >
+                  {{ emailTemp.name }}
+                </span></a
+              >
             </div>
             <div class="col-sm-3 text-large">
-            <a href="/emailing/createEmail/{{ emailTemp.id }}/"><span class="text-large" style=" font-size: 1.8rem; font-weight: 600; color: black;">
-                Use
-              </span></a>
-            <a href="/emailing/edittemplate/{{ emailTemp.id }}/"
-              ><span class="col-sm-4" style=" font-size: 1.8rem; font-weight: 600;color: black;">
-                Edit
-              </span></a
-            >
-            
-            <a href="/emailing/deletetemplate/{{ emailTemp.id }}/"><span class="text-large" style=" font-size: 1.8rem; font-weight: 600; color: black;">
-                Delete
-              </span></a>
+              <a href="/emailing/createEmail/{{ emailTemp.id }}/"
+                ><span
+                  class="text-large"
+                  style="font-size: 1.8rem; font-weight: 600; color: black;"
+                >
+                  Use
+                </span></a
+              >
+              <a href="/emailing/edittemplate/{{ emailTemp.id }}/"
+                ><span
+                  class="col-sm-4"
+                  style="font-size: 1.8rem; font-weight: 600; color: black;"
+                >
+                  Edit
+                </span></a
+              >
+
+              <a href="/emailing/deletetemplate/{{ emailTemp.id }}/"
+                ><span
+                  class="text-large"
+                  style="font-size: 1.8rem; font-weight: 600; color: black;"
+                >
+                  Delete
+                </span></a
+              >
             </div>
-        </div>
-        <hr style=" width:95%; height:1px; background: rgba(95, 95, 95, 0.712);"/>
-        <br>
+          </div>
+          <hr
+            style="
+              width: 95%;
+              height: 1px;
+              background: rgba(95, 95, 95, 0.712);
+            "
+          />
+          <br />
         </li>
         {% endfor %}
       </ul>

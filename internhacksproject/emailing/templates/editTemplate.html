@@ -1,15 +1,34 @@
 
+{% extends 'base_layout.html' %}
+
+
+{% block content %}
+
+<div class="row">
+        <h1>Create Template</h1>
+      </div>
 <form action="/emailing/edittemplate/{{ template.id }}/" method="post">
 {% csrf_token %}
-<label for="templateName">Template Name: </label>
-<input id="templateName" type="text" name="templateName" value="{{template.name}}">
-<label>Text Area</label>
-<textarea id = "templateContent"
-        name = "templateContent"
-        rows = "3"
-        cols = "80" >{{ template.content}}</textarea>
-<input type="submit" value="Edit">
+
+<br>
+<div class="form-group">
+        <label for="templateName">Template Name: </label>
+        <input type="text" class="form-control" id="templateName" name="templateName" placeholder="big emails" value="{{template.name}}">
+      </div>
+      <br>
+      
+      <div class="form-group">
+        <label for="templateContent">Template content</label>
+        <textarea class="form-control" id="templateContent"  name= "templateContent" placeholder="Use $ to signify a variables eg. $company or $name (English letters only)" rows="5">{{ template.content}}</textarea>
+      </div>
+
+<div class="form-group">
+        <button type="submit" class="btn btn-secondary btn-lg btn-block">Edit Template</button>
+        
+    </div>
 </form>
 <br>
 <br>
-<a href="/emailing">Home</a> 
+
+
+{% endblock %}
