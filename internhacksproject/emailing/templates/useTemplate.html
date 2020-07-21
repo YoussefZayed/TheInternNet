@@ -1,61 +1,34 @@
-{% extends 'base_layout.html' %}
+<h1> Create an email with Template {{ email.name }}</h1>
 
-
-{% block content %}
-<h1> Create an email with {{ email.name }} Template </h1>
-
-
-<br>
-<div class="row">
-    <div class="col-sm-12 rounded" style="min-height: 10rem; background-color: #bdbdbd;">
-        <h2>
-            {{ email.content|linebreaksbr }}
-        </h2>
-    
-    </div>
-</div>
-
-<br>
-
-
+<p>
+    {{ email.content|linebreaksbr }}
+</p>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
+<a href="/emailing/">Home</a> 
 
 
 
 <form action="/emailing/createdEmail/{{email.id}}/" method="post">
 {% csrf_token %}
 
-    <!-- <label for="EmailUsedName">What would you like to name this email? </label>
-    <input id="EmailUsedName" type="text" name="EmailUsedName"> -->
-    <br>
-    <div class="form-group">
-            <label for="EmailUsedName">Email Name: </label>
-            <input type="text" class="form-control" id="EmailUsedName" name="EmailUsedName" placeholder="Email Name">
-          </div>
+    <label for="EmailUsedName">What would you like to name this email? </label>
+    <input id="EmailUsedName" type="text" name="EmailUsedName">
 
+<br><br><br>
 {% if variables %}
    
     {% for var in variables %}
-    <br>
-    <div class="form-group">
-        <label for="{{ var }}">{{ var }}: </label>
-        <input type="text" class="form-control" id="{{ var }}" name="{{ var }}" placeholder="{{ var }}">
-      </div>
-    <!-- <label for="{{ var }}">{{ var }}: </label>
-    <input id="{{ var }}" type="text" name="{{ var }}"> -->
+    <label for="{{ var }}">{{ var }}: </label>
+    <input id="{{ var }}" type="text" name="{{ var }}">
     {% endfor %}
    
 {% else %}
-    <h2>No variables are found.</h2>
+    <p>No variables are found.</p>
 {% endif %}
-<br>
-<div class="form-group">
-    <button type="submit" class="btn btn-secondary btn-lg btn-block">Create Email</button>
-    
-</div>
+
+<input type="submit" value="Create">
 </form>
 
-
-{% endblock %}
+{{ res }}
