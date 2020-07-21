@@ -2,16 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
     <style>
-      {% block style %}
-
-      {% endblock style %}
-
-      * {
-      font-family: Work Sans;
-      }
-
       .sidenav {
       height: 100%;
       width: 7%;
@@ -25,27 +16,30 @@
       }
       .sidenav a {
       padding:20% 30%;
-      display: inline-block;
+      display: block;
       }
       a .svg-class:hover path {
       fill: #DADADA;
       }
-
-      .main{
-      padding-left: 1%;
+      .main {
+      margin-left: 10%;
+      padding: 0px 2%;
       }
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </head>
   <body >
+    <nav>
+
+    </nav>
     <div class = "sidenav">
       <a href="#" style=padding-bottom:125%>
         <svg width=90% height=90% viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="54" height="54" rx="15" fill="black"/>
         </svg>
       </a>
-      <a href="{% url 'jobs' %}">
+      <a href="#">
         <svg class="svg-class"width=80% height=80% viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M25.3109 24.1193H26.6276L33.6943 31.2193C34.3776 31.9026 34.3776 33.0193 33.6943 33.7026C33.0109 34.386 31.8943 34.386 31.2109 33.7026L24.1276 26.6193V25.3026L23.6776 24.836C21.3443 26.836 18.1609 27.8693 14.7776 27.3026C10.1443 26.5193 6.44426 22.6526 5.87759 17.986C5.01092 10.936 10.9443 5.00262 17.9943 5.86929C22.6609 6.43595 26.5276 10.136 27.3109 14.7693C27.8776 18.1526 26.8443 21.336 24.8443 23.6693L25.3109 24.1193ZM9.12757 16.6193C9.12757 20.7693 12.4776 24.1193 16.6276 24.1193C20.7776 24.1193 24.1276 20.7693 24.1276 16.6193C24.1276 12.4693 20.7776 9.11927 16.6276 9.11927C12.4776 9.11927 9.12757 12.4693 9.12757 16.6193Z" fill="white"/>
         </svg>
