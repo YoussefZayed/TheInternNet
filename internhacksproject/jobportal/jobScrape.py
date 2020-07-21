@@ -69,6 +69,15 @@ class ScrapeLinkdin(models.Model):
                     jobInfo['Date Posted'] = date.getText()
                     break
 
+            #count = 0
+            #for date in indivSoup.findAll('img'):
+                #if count == 1:
+                    #jobInfo['Image'] = data['src']
+                    #break
+                #count+=1
+#
+            #count = 0
+
             # This gets the whole Description of the post including the requirments that may be listed
             descrip = ''
             for li in indivSoup.findAll(attrs={ 'class': "show-more-less-html__markup"}):
@@ -78,9 +87,9 @@ class ScrapeLinkdin(models.Model):
             # Criteria section have the same class, so by getting the first 2 we can get the Seniority level (ex Entry) and the Employment type (ex fulltime)
             for critList in indivSoup.findAll(attrs={ 'class': "job-criteria__text job-criteria__text--criteria"}):
                 if count == 0:
-                    jobInfo['Seniority Level'] = critList.getText()
+                    jobInfo['Seniority'] = critList.getText()
                 elif count == 1:
-                    jobInfo['Employment Type'] = critList.getText()
+                    jobInfo['Employment'] = critList.getText()
                     break
                 count+=1
 

@@ -2,16 +2,17 @@
 {% load static %}
 <!DOCTYPE html>
 {% block style %}
-  .sheet{
-    height: 100%;
-    overflow-x: hidden;
-    top: 0;
-    right: 0;
-    position: fixed;
-    z-index: 1;
-    width: 30%;
-    background-color: #F0F0F1;
-  }
+.sheet{
+height: 100%;
+overflow-x: hidden;
+top: 0;
+right: 0;
+position: fixed;
+z-index: 1;
+width: 30%;
+background-color: #F0F0F1;
+}
+
 {% endblock style %}
 {% block content %}
 <div class="container">
@@ -30,22 +31,57 @@
     </div>
     <div class="col-sm-3">
       <div class = "sheet">
-      </div>
+        <div class="container">
+        <div class="row" id = "Company">{{postList.0.Company}}</div>
+        <a href="{{postList.0.URL}}" class="row" id = "Link">Link</a>
+        <div class="row" id = "Title">{{postList.0.Title}}</div>
+        <div class="row" id = "Location">bruh</div>
+        <div class="row">Job Description</div>
+        <div class="row" id = "Description">{{postList.0.Description}}</div>
+
+        <!-->
+click and change text/colour
+proper format
+save post
+saved posts
+get image and Location
+
+        <-->
+
     </div>
   </div>
-
+      </div>
+    </div>
   {%for item in postList%}
   <div class="row" style= padding-top:2%>
     <div class="col-sm-8">
       <div class="card bg-light">
-        <div class="card-body">
-          <a href="login" class="stretched-link"></a>
-          {{item.Title}}
+        <div class="my_variable" style="display:none">{{item.Company}}|{{item.URL}}|{{item.Title}}|{{item.Description}}</div>
+        <a href="#!" onclick=myFunction({{forloop.counter}}) class="stretched-link"></a>
+        <div class="card-header">{{item.Title}}</div>
+        <div class="container-fluid">
+          <div class="row" style= padding-top:2%>
+            <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">{{item.Company}}</div>
+            <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">{{item.Seniority}}</div>
+            <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">{{item.Seniority}}</div>
+          </div>
+          <div class="row" style= padding-top:2%>
+            <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">Company</div>
+            <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">Location</div>
+            <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">Level</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   {% endfor %}
-
 </div>
+<script>
+function myFunction(num) {
+  document.getElementById('Company').innerHTML = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[0];
+  document.getElementById('Link').setAttribute('href', ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[1]);
+  document.getElementById('Title').innerHTML = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[2];
+  document.getElementById('Description').innerHTML = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[3];
+}
+</script>
 {% endblock content%}
