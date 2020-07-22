@@ -4,21 +4,20 @@
 {% block style %}
 .sheet{
 height: 100%;
-overflow-x: hidden;
 top: 0;
 right: 0;
 position: fixed;
 z-index: 1;
 width: 30%;
-background-color: #F0F0F1;
+background-color: #FFFFFF;
+overflow-x:hidden;
 }
-
 {% endblock style %}
 {% block content %}
 <div class="container">
   <div class="row" style= padding-top:2%>
     <div class="col-sm-8">
-      <h1>Jobs For You </h1>
+      <h1 style="color:#000000">Jobs For You </h1>
     </div>
   </div>
   <div class="row">
@@ -31,41 +30,37 @@ background-color: #F0F0F1;
     </div>
     <div class="col-sm-3">
       <div class = "sheet">
+        <div style="position:relative;left:90%;top:2%">
+          <svg width="10%" height="10%" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.25 3.75H8.75C7.375 3.75 6.25 4.875 6.25 6.25V26.25L15 22.5L23.75 26.25V6.25C23.75 4.875 22.625 3.75 21.25 3.75Z" fill="#068B80"/>
+</svg>
+
+        </div>
         <div class="container">
-        <div class="row" id = "Company">{{postList.0.Company}}</div>
-        <a href="{{postList.0.URL}}" class="row" id = "Link">Link</a>
-        <div class="row" id = "Title">{{postList.0.Title}}</div>
-        <div class="row" id = "Location">bruh</div>
-        <div class="row">Job Description</div>
-        <div class="row" id = "Description">{{postList.0.Description}}</div>
-
-        <!-->
-click and change text/colour
-proper format
-save post
-saved posts
-get image and Location
-
-        <-->
-
-    </div>
-  </div>
+          <h1><div class="row justify-content-center" style="padding-top:5%;" id = "Company">{{postList.0.Company}}</div></h1>
+          <a href="{{postList.0.URL}}" class="row justify-content-center" id = "Link">Job Listing</a>
+          <div class="row" style="font-size:18px;padding-left:3%;padding-top:6%;" id = "Title">{{postList.0.Title}}</div>
+          <div class="row" style="font-size:16px;padding-left:3%;color:#828282" id = "Location">{{postList.0.Location}}</div>
+          <div class="row" style="font-size:18px;padding-left:3%;padding-top:6%">Job Description</div>
+          <div class="row" style="font-size:16px;padding-left:3%;color:#828282" id = "Description">{{postList.0.Description}}</div>
+        </div>
       </div>
     </div>
+  </div>
   {%for item in postList%}
-  <div class="row" style= padding-top:2%>
+  <div class="row" style= padding-top:2%;padding-bottom:1%>
     <div class="col-sm-8">
       <div class="card bg-light">
-        <div class="my_variable" style="display:none">{{item.Company}}|{{item.URL}}|{{item.Title}}|{{item.Description}}</div>
+        <div class="my_variable" style="display:none">{{item.Company}}|{{item.URL}}|{{item.Title}}|{{item.Location}}|{{item.Description}}</div>
         <a href="#!" onclick=myFunction({{forloop.counter}}) class="stretched-link"></a>
         <div class="card-header">{{item.Title}}</div>
         <div class="container-fluid">
           <div class="row" style= padding-top:2%>
             <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">{{item.Company}}</div>
-            <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">{{item.Seniority}}</div>
+            <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">{{item.Location}}</div>
             <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">{{item.Seniority}}</div>
           </div>
-          <div class="row" style= padding-top:2%>
+          <div class="row" style= "padding-top:2%; padding-bottom:1%">
             <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">Company</div>
             <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">Location</div>
             <div class="col-sm-4" style="font-size: 16px;line-height: 19px;">Level</div>
@@ -77,11 +72,16 @@ get image and Location
   {% endfor %}
 </div>
 <script>
-function myFunction(num) {
-  document.getElementById('Company').innerHTML = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[0];
-  document.getElementById('Link').setAttribute('href', ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[1]);
-  document.getElementById('Title').innerHTML = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[2];
-  document.getElementById('Description').innerHTML = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[3];
-}
+  function myFunction(num) {
+    document.getElementById('Company').innerHTML = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[0];
+    document.getElementById('Link').setAttribute('href', ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[1]);
+    document.getElementById('Title').innerHTML = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[2];
+    document.getElementById('Location').innerHTML = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[3];
+    document.getElementById('Description').innerHTML = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[4];
+    for (let i = 0; i < document.getElementsByClassName("card bg-info").length; i++){
+    (document.getElementsByClassName("card text-white bg-info")[i]).className = "card bg-light"}
+
+    (document.getElementsByClassName("card bg-light")[num-1]).className = "card text-white bg-info"
+  }
 </script>
 {% endblock content%}
