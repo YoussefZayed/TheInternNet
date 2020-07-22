@@ -12,7 +12,7 @@ class ScrapeLinkdin(models.Model):
 
     def __init__(self,searchTerm):
         # This is just a variable I set to test it, however the website should have a drop down menu or an input field to get this
-        location = "Montreal Quebec Canada"
+        location = "Ontario Canada"
 
         # This just breaks up the location to have it fit the URL format
         for char in location:
@@ -59,7 +59,10 @@ class ScrapeLinkdin(models.Model):
                     # The postings title
                     'Title':(indivSoup.find(attrs={ 'class': "topcard__title"})).getText(),
                     # The postings Company
-                    'Company':(indivSoup.find(attrs={ 'class': "topcard__flavor"})).getText()
+                    'Company':(indivSoup.find(attrs={ 'class': "topcard__flavor"})).getText(),
+
+                    'Location':(indivSoup.find(attrs={ 'class': "topcard__flavor topcard__flavor--bullet"})).getText()
+
                     }
 
             # The postings Date posted (for some reason just using find wont work for the specific class, however findAll in a loop only looping once works)
@@ -69,19 +72,10 @@ class ScrapeLinkdin(models.Model):
                     jobInfo['Date Posted'] = date.getText()
                     break
 
-            #count = 0
-            #for date in indivSoup.findAll('img'):
-                #if count == 1:
-                    #jobInfo['Image'] = data['src']
-                    #break
-                #count+=1
-#
-            #count = 0
-
             # This gets the whole Description of the post including the requirments that may be listed
             descrip = ''
             for li in indivSoup.findAll(attrs={ 'class': "show-more-less-html__markup"}):
-                descrip = descrip + li.getText()
+                descrip = descrip +" " + li.getText()
             jobInfo['Description'] = descrip
 
             # Criteria section have the same class, so by getting the first 2 we can get the Seniority level (ex Entry) and the Employment type (ex fulltime)
