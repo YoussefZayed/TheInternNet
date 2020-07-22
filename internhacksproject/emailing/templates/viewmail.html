@@ -1,15 +1,59 @@
-<h1>{{ email.name }}</h1>
-<p>
-    {{ email.content|linebreaksbr }}
-</p>
-<a href="/emailing/">Home</a> <a href="/emailing/createEmail/{{ email.id }}/">Use</a>
+{% extends 'base_layou2t.html' %}
 
-{% if email_list %}
-    <ul>
-    {% for emailSent in email_list %}
-        <li>{{ emailSent.name }} Created on {{ emailSent.dateCreated }} <a href="/emailing/viewCreatedEmail/{{ email.id }}/{{ emailSent.id }}">View</a> </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>This Template was not used.</p>
-{% endif %}
+
+
+{% block content %}
+<h1>{{ email.name }}</h1>
+<br>
+<div class="row">
+
+    <div class=" col-sm-3">
+        <a href="/emailing/createEmail/{{ email.id }}/">
+            <button
+                      class="btn btn-secondary btn-lg btn-block"
+                      style="background-color: #828282;"
+                      type="submit"
+                    >
+                    Use Template
+                    </button> </a>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12 rounded" style="min-height: 10rem; background-color: #bdbdbd;">
+        <h2>
+            {{ email.content|linebreaksbr }}
+        </h2>
+    
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-sm-12 rounded" style="min-height: 35rem; background-color: #bdbdbd;">
+      {% if email_list %}
+      <ul style="list-style-type: none;">
+        {% for emailSent in email_list %}
+        <li>
+            <br>
+            <div class="row">            
+            <div class="col-sm-9 ">
+                <a href="/emailing/viewCreatedEmail/{{ email.id }}/{{ emailSent.id }}">
+                    <span class="text-large" style=" font-size: 1.5rem; font-weight: 600; color: black;">
+                        {{ emailSent.name }} Created on {{ emailSent.dateCreated }}
+                    </span></a>
+            </div>
+        <hr style=" width:95%; height:1px; background: rgba(95, 95, 95, 0.712);"/>
+        <br>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No emails were created.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

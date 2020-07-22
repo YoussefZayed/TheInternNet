@@ -2,16 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
     <style>
-      {% block style %}
-
-      {% endblock style %}
-
-      * {
-      font-family: Work Sans;
-      }
-
       .sidenav {
       height: 100%;
       width: 7%;
@@ -25,20 +16,23 @@
       }
       .sidenav a {
       padding:20% 30%;
-      display: inline-block;
+      display: block;
       }
       a .svg-class:hover path {
       fill: #DADADA;
       }
-
-      .main{
-      padding-left: 1%;
+      .main {
+      margin-left: 10%;
+      padding: 0px 2%;
       }
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </head>
   <body >
+    <nav>
+
+    </nav>
     <div class = "sidenav">
       <a href="#" style=padding-bottom:125%>
         <svg width=90% height=90% viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,11 +64,7 @@
           <path fill-rule="evenodd" clip-rule="evenodd" d="M20.6666 7.33329C20.6666 11.0166 17.6833 14 13.9999 14C10.3166 14 7.33327 11.0166 7.33327 7.33329C7.33327 3.64996 10.3166 0.666626 13.9999 0.666626C17.6833 0.666626 20.6666 3.64996 20.6666 7.33329ZM0.666626 23.9999C0.666626 19.5666 9.54996 17.3333 14 17.3333C18.45 17.3333 27.3333 19.5666 27.3333 23.9999V25.6666C27.3333 26.5833 26.5833 27.3333 25.6666 27.3333H2.33329C1.41663 27.3333 0.666626 26.5833 0.666626 25.6666V23.9999Z" fill="white"/>
         </svg>
       </a>
-      <!-- <a href="#" style="position: absolute; bottom: 1%;">
-        <svg class="svg-class" width=80% height=80% viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M32.5037 20C32.5037 20.5667 32.4537 21.1 32.387 21.6333L35.9037 24.3833C36.2204 24.6333 36.3037 25.0833 36.1037 25.45L32.7704 31.2167C32.5704 31.5833 32.137 31.7333 31.7537 31.5833L27.6037 29.9167C26.737 30.5667 25.8037 31.1333 24.787 31.55L24.1537 35.9667C24.1037 36.3667 23.7537 36.6667 23.337 36.6667H16.6704C16.2537 36.6667 15.9037 36.3667 15.8537 35.9667L15.2204 31.55C14.2037 31.1333 13.2704 30.5833 12.4037 29.9167L8.2537 31.5833C7.88703 31.7167 7.43703 31.5833 7.23703 31.2167L3.9037 25.45C3.7037 25.0833 3.78703 24.6333 4.1037 24.3833L7.62037 21.6333C7.5537 21.1 7.5037 20.55 7.5037 20C7.5037 19.45 7.5537 18.9 7.62037 18.3667L4.1037 15.6167C3.78703 15.3667 3.68703 14.9167 3.9037 14.55L7.23703 8.78334C7.43703 8.41668 7.87037 8.26668 8.2537 8.41668L12.4037 10.0833C13.2704 9.43334 14.2037 8.86668 15.2204 8.45001L15.8537 4.03334C15.9037 3.63334 16.2537 3.33334 16.6704 3.33334H23.337C23.7537 3.33334 24.1037 3.63334 24.1537 4.03334L24.787 8.45001C25.8037 8.86668 26.737 9.41668 27.6037 10.0833L31.7537 8.41668C32.1204 8.28334 32.5704 8.41668 32.7704 8.78334L36.1037 14.55C36.3037 14.9167 36.2204 15.3667 35.9037 15.6167L32.387 18.3667C32.4537 18.9 32.5037 19.4333 32.5037 20ZM14.1704 20C14.1704 23.2167 16.787 25.8333 20.0037 25.8333C23.2204 25.8333 25.837 23.2167 25.837 20C25.837 16.7833 23.2204 14.1667 20.0037 14.1667C16.787 14.1667 14.1704 16.7833 14.1704 20Z" fill="white"/>
-        </svg>
-      </a> -->
+      
     </div>
     <div class="main">
       {% block content %}
