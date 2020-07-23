@@ -1,0 +1,35 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+<!DOCTYPE html>
+{% block style %}
+{% endblock style %}
+{% block content %}
+<div class="container">
+  <div class="col-sm-12">
+    <h1 style="color:#000000;padding-top:2%;">Saved Job Postings </h1>
+  </div>
+  <div class="row">
+  {% for save in savedData %}
+  <div class="col-sm-3"  style= "padding-top:2%; padding-bottom:1%">
+    <div class="card bg-light">
+      <a href="{{save.link}}" target="_blank" class="stretched-link"></a>
+      <div class="card-header">{{save.title}}</div>
+      <div class="container-fluid">
+        <div class="row" style= "padding-top:2%;color:#828282;font-size:16px" >
+        <div class="col-sm-12">
+          Company: {{save.company}}
+        </div>
+        </div>
+          <div class="row"style= "padding-top:2%;color:#828282;font-size:16px">
+          <div class="col-sm-12">
+            Location: {{save.location}}
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+</div>
+{% endblock content%}

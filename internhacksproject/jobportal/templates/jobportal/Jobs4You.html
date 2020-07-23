@@ -21,7 +21,7 @@ overflow-x:hidden;
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-8" style="padding-bottom:1%">
       <form class="form-inline" method ="get">
         <i class="fas fa-search" aria-hidden="true"></i>
         <input class="form-control d-inline w-75" id="ex4" type="text" placeholder="Search"
@@ -31,14 +31,24 @@ overflow-x:hidden;
     <div class="col-sm-3">
       <div class = "sheet">
         <div style="position:relative;left:90%;top:2%">
+
+          <form method="POST" action="/save/" id="my_form">
+            {% csrf_token %}
+            <input type="hidden" id="Company1" name="Company1" value="{{postList.0.Company}}"></input>
+            <input type="hidden" id="Link1" name="Link1" value="{{postList.0.URL}}"></input>
+            <input type="hidden" id="Title1" name="Title1" value="{{postList.0.Title}}"></input>
+            <input type="hidden" id="Location1" name="Location1" value="{{postList.0.Location}}"></input>
+          <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
           <svg width="10%" height="10%" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M21.25 3.75H8.75C7.375 3.75 6.25 4.875 6.25 6.25V26.25L15 22.5L23.75 26.25V6.25C23.75 4.875 22.625 3.75 21.25 3.75Z" fill="#068B80"/>
-</svg>
+            <path d="M21.25 3.75H8.75C7.375 3.75 6.25 4.875 6.25 6.25V26.25L15 22.5L23.75 26.25V6.25C23.75 4.875 22.625 3.75 21.25 3.75Z" fill="#068B80"/>
+          </svg></a>
+        </form>
+
 
         </div>
         <div class="container">
-          <h1><div class="row justify-content-center" style="padding-top:5%;" id = "Company">{{postList.0.Company}}</div></h1>
-          <a href="{{postList.0.URL}}" class="row justify-content-center" id = "Link">Job Listing</a>
+          <h1><div class="row justify-content-center" style="padding-top:2%;" id = "Company">{{postList.0.Company}}</div></h1>
+          <a href="{{postList.0.URL}}" target="_blank" class="row justify-content-center" id = "Link">Job Listing</a>
           <div class="row" style="font-size:18px;padding-left:3%;padding-top:6%;" id = "Title">{{postList.0.Title}}</div>
           <div class="row" style="font-size:16px;padding-left:3%;color:#828282" id = "Location">{{postList.0.Location}}</div>
           <div class="row" style="font-size:18px;padding-left:3%;padding-top:6%">Job Description</div>
@@ -48,7 +58,7 @@ overflow-x:hidden;
     </div>
   </div>
   {%for item in postList%}
-  <div class="row" style= padding-top:2%;padding-bottom:1%>
+  <div class="row" style= "padding-top:1%;padding-bottom:1%">
     <div class="col-sm-8">
       <div class="card bg-light">
         <div class="my_variable" style="display:none">{{item.Company}}|{{item.URL}}|{{item.Title}}|{{item.Location}}|{{item.Description}}</div>
@@ -82,6 +92,11 @@ overflow-x:hidden;
     (document.getElementsByClassName("card text-white bg-info")[i]).className = "card bg-light"}
 
     (document.getElementsByClassName("card bg-light")[num-1]).className = "card text-white bg-info"
+
+    document.getElementById('Company1').value = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[0];
+    document.getElementById('Link1').value = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[1];
+    document.getElementById('Title1').value = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[2];
+    document.getElementById('Location1').value = ((((document.getElementsByClassName("my_variable"))[num-1]).innerText).split("|"))[3];
   }
 </script>
 {% endblock content%}

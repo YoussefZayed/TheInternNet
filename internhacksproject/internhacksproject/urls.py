@@ -20,7 +20,7 @@ from authenticator import views
 
 urlpatterns = [
     path('emailing/',include('emailing.urls'),name="Email_App"),
-    path('jobs/',include('jobportal.urls'),name="jobs"),
+    path('',include('jobportal.urls'),name="jobs"),
     path('admin/', admin.site.urls),
     path('login/',views.logIn,name = "login"),
     path('register/',views.register,name = "register"),

@@ -4,5 +4,7 @@ from jobportal import views
 
 
 urlpatterns = [
-    path('', views.jobs4you, name='jobs')
+    path('jobs/', views.jobs4you, name='jobs'),
+    path('saved/', views.savedJobs, name='saved'),
+    path('save/', views.savePosts, name='save')
 ]
